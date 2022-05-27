@@ -7,6 +7,9 @@
 
 body{
     overflow: hidden;
+    background-image: url("./images/karazin.jpg");
+    background-repeat: no-repeat;
+    background-size: 125%;
 }
 
 .title{
@@ -51,7 +54,7 @@ body{
 .pipe > .segment{
     position: absolute;
     width: 100%;
-    background: blueviolet;    
+    background: rgb(144, 119, 82);    
 }
 
 .pipe > .top{
