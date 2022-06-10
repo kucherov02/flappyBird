@@ -1,5 +1,5 @@
-const HOLE_HEIGHT = 175;
-const PIPE_WIDTH = 90;
+const HOLE_HEIGHT = 194;
+const PIPE_WIDTH = 87;
 let pipes = []; //array of pipes
 let timeSinceLastPipe; 
 const PIPE_INTERVAL = 1200;
