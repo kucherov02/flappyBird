@@ -7,14 +7,12 @@
 
 body{
     overflow: hidden;
-    background-image: url("./images/karazin.jpg");
-    background-repeat: no-repeat;
-    background-size: 125%;
+   
 }
 
 .title{
-    color: rgb(213, 168, 255);;
-    z-index: 10;
+    color: rgb(255, 255, 255);;
+    z-index: 9;
     position: absolute;
     display: flex;
     align-items: center;
@@ -24,7 +22,7 @@ body{
 }
 
 .subtitle{
-    color: rgb(213, 168, 255);
+    color: rgb(255, 255, 255);
     margin-top: .5rem;
 }
 
@@ -33,7 +31,7 @@ body{
 }
 
 .bird{
-    --bird-top: 0;
+    --bird-top: 400;
     --bird-size: 60px;
     position: absolute;
     width: var(--bird-size);
@@ -54,10 +52,11 @@ body{
 .pipe > .segment{
     position: absolute;
     width: 100%;
-    background: rgb(144, 119, 82);    
+    background: rgb(123, 220, 106);
 }
 
 .pipe > .top{
+    border-radius: 10xp;
     top: 0;
     bottom: calc(var(--hole-top)*1px);
 }
@@ -69,12 +68,117 @@ body{
 
 .gray{
     position: absolute;
-    z-index: 9;
+    z-index: 8;
     background: black;
     opacity: 50%;
     width: 100%;
     height: 100%;
 }
 
+.modal-character{
+    position: fixed;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: .5s ease-in-out;
+    background-color: white;
+    width: 600px;
+    max-width: 900px;
+    border-radius: 20px;
+}
+
+.modal-head{
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 0rem;
+    border-bottom: 1px solid #222222;
+}
+
+.character-panel{
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 2.5rem;
+}
+
+.character-button img{
+   width: 6rem;
+   height: 6rem;
+   pointer-events: none;
+}
+
+.modal-character.active{
+    transform: translate(-50%,-50%) scale(1);
+}
+
+
+
+/* CSS */
+.character-button {
+  background-color: #FFFFFF;
+  border: 1px solid #222222;
+  border-radius: 25px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+
+.character-button:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow .2s;
+}
+
+.character-button:active {
+  background-color: #F7F7F7;
+  border-color: #000000;
+  transform: scale(.96);
+}
+
+.character-button:disabled {
+  border-color: #DDDDDD;
+  color: #DDDDDD;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.background-img{
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+}
+
+.background-img img{
+    height: 100vh;
+    width: 100vw;
+}
+
+.counter{
+    position: fixed;
+    z-index: 6;
+    color: black;
+    top: 5%;
+    left: 83%;
+    font-size: 1.8rem;
+    background: white;
+    padding: .5rem 1.2rem;
+    border: 2px solid black;
+    border-radius: 12px;
+}
 
   

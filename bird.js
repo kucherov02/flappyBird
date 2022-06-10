@@ -4,9 +4,9 @@ let timeSinceLastJump = Number.POSITIVE_INFINITY;
 const JUMP_DUR = 160; 
 
 
-export function updateBird(delta){
+export function updateBird(delta){ //updating bird position
     
-    if(timeSinceLastJump < JUMP_DUR){
+    if(timeSinceLastJump < JUMP_DUR){  //jumping 
        setTop(getTop() - BIRD_SPEED * delta); 
     }else{
         setTop(getTop() +   BIRD_SPEED * delta);
@@ -34,7 +34,7 @@ function getTop(){
     return parseFloat(getComputedStyle(birdElem).getPropertyValue("--bird-top"));
 }
 
-function handleJump(e){
+function handleJump(e){  
     if(e.code !== "Space") return;
 
     timeSinceLastJump = 0; 
