@@ -165,20 +165,32 @@ body{
 
 .background-img img{
     height: 100vh;
-    width: 100vw;
+    width: 100vw;   
 }
 
-.counter{
-    position: fixed;
-    z-index: 6;
+.count{
     color: black;
-    top: 5%;
-    left: 83%;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     background: white;
-    padding: .5rem 1.2rem;
+    padding: .4rem 1rem;
     border: 2px solid black;
     border-radius: 12px;
+    max-width: 9rem;
 }
+
+.points-block{
+    top: 5%;
+    left: 85%;
+    width: 12rem;
+    height: 6rem;
+    position: fixed;
+    z-index: 10;
+    display: flex; 
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between ;
+}
+
+
 
   

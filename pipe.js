@@ -19,12 +19,12 @@ export function updatePipes(delta){
 
     pipes.forEach(pipe =>{
         if(pipe.left + PIPE_WIDTH < 0){ //if the pipe is out of screen 
-            pipePassedCount++;
-            counter.textContent = `Counter: ${pipePassedCount}`;
+            pipePassedCount++; 
             return pipe.remove();
         }
         pipe.left = pipe.left - delta*PIPE_SPEED;
     });
+    counter.textContent = `Counter: ${pipePassedCount}`;
 }
 
 export function setupPipes() {     

@@ -2,10 +2,22 @@ import {updateBird, setupBird, getBirdRect} from "./bird.js"
 import {updatePipes, setupPipes, getPassedPipesCount, getPipeRects} from "./pipe.js"
 
 
+//record handling 
+let recordNum;
+
+if(localStorage.getItem("record") === null){
+    recordNum = 0; 
+    localStorage.setItem("record", JSON.stringify(record));    
+}else{
+    recordNum = JSON.parse(localStorage.getItem("record"));
+}
+
+
 //query all elements of modal-window
 const modal = document.querySelector(".modal-character");
 const characterPanel = document.querySelector(".character-panel");
 const counter = document.querySelector(".counter");
+const record = document.querySelector(".record");
 
 //creating array of characters 
 let characterBtns = [];
@@ -103,9 +115,11 @@ function handleStart(){
     title.classList.add("hide");
     gray.classList.add("hide");
     counter.classList.remove("hide");
+    record.classList.remove("hide");
     setupBird();    //setup startposition of bird
     setupPipes();   // setup startposition of pipe
     lastTime = null;
+    record.textContent = `Record: ${recordNum}`;
     window.requestAnimationFrame(updateLoop);   //start updating animation
 }
 
@@ -117,8 +131,25 @@ function handleLose(){
     subtitle.classList.remove("hide");
     gray.classList.remove("hide");
     counter.classList.add("hide");
+    record.classList.add("hide");
     counter.textContent = `Counter: 0`;
     subtitle.textContent = `${getPassedPipesCount()} pipes`;
     document.addEventListener("keypress", handleStart, {once: true});  
+
+    if(getPassedPipesCount() > recordNum){
+        recordNum = getPassedPipesCount();
+        localStorage.setItem("record",JSON.stringify(recordNum));
+    }
     }, 150);
+}
+
+
+//record functions
+
+function getRecord(){
+    return recordNum;
+}
+
+function setRecord(value){
+    recordNum = value;
 }
