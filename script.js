@@ -7,7 +7,7 @@ let recordNum;
 
 if(localStorage.getItem("record") === null){
     recordNum = 0; 
-    localStorage.setItem("record", JSON.stringify(record));    
+    localStorage.setItem("record", JSON.stringify(recordNum));    
 }else{
     recordNum = JSON.parse(localStorage.getItem("record"));
 }
@@ -19,7 +19,7 @@ const characterPanel = document.querySelector(".character-panel");
 const counter = document.querySelector(".counter");
 const record = document.querySelector(".record");
 
-//creating array of characters 
+//creating array of characters  
 let characterBtns = [];
 characterBtns.push(createCharacterBtn("./images/lazurik.png"));
 characterBtns.push(createCharacterBtn("./images/kazhan.png"));
